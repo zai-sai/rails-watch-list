@@ -25,4 +25,8 @@ index = 0
   index += 1
 end
 puts "Created 10 movies!"
-puts "Seeding movies..."
+puts "Seeding lists..."
+List.create(name: "goblin")
+List.create(name: "chad")
+List.create(name: "fairy")
+puts "Created 3 lists!"

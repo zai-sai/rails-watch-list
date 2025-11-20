@@ -1,0 +1,30 @@
+<div class="row text-center">
+  <h2><%= @list.name %></h2>
+</div>
+
+<div  class="text-center">
+  <p class="lead">movies that fit the <%= @list.name %> vibe</p>
+  <%= link_to 'all lists', root_path, class: "btn btn-outline-primary mx-2"%>
+  <%= link_to 'add bookmark', new_list_bookmark_path(@list), class: "btn btn-primary mx-2"%>
+</div>
+
+<div class="row my-5">
+  <% @bookmarks.each do |bookmark| %>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %> poster">
+      <div class="card-body">
+        <h5 class="card-title"><%= bookmark.movie.title %> <span class="text-body-secondary"><%= bookmark.movie.rating %> ⭐️</span></h5>
+        <div class="card my-3 p-2 bg-primary" data-bs-theme="light">
+          <p class="card-subtitle text-body-secondary">recommendation:</p>
+          <p class="card-text"><%= bookmark.comment %></p>
+        </div>
+        <p class="card-text"><%= bookmark.movie.overview %></p>
+        <div class="text-end mb-2">
+          <%= link_to 'delete bookmark', bookmark_path(bookmark), class: "btn btn-outline-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this bookmark?"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
   <head>
     <title>RailsWatchList</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar border-bottom border-body" data-bs-theme="dark">
+      <div class="container">
+      <%= link_to 'moVibe', root_path, class: "navbar-brand fw-bold" %>
+      <%= link_to 'new list', new_list_path, class: "nav-item btn btn-sm btn-light" %>
+      </div>
+    </nav>
+    <div class="container my-3">
+      <%= yield %>
+    </div>
   </body>
 </html>

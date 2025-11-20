@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h2>movie lists</h2>
+  <p>forget genre, get funky and explore movies by vibe</p>
+</div>
+
+<div class ="row">
+  <% @lists.each do |list| %>
+  <div class="col-12 col-md-4">
+    <div class="card text-bg-dark m-2">
+      <%# <img src="..." class="card-img" alt="..."> %>
+      <div class="card-body text-center align-center"> <%# replace card-body with card-img-overlay %>
+        <h5 class="card-title"><%= link_to list.name, list_path(list), class: 'link-underline link-underline-opacity-0'%></h5>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
