@@ -1,6 +1,10 @@
-<h2>make a new list</h2>
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
-<%= link_to '< cancel', root_path %>
+<div class ="row justify-content-center">
+  <div class="col-md-6">
+    <h2>make a new list</h2>
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.submit 'create list', class: "btn btn-default btn-primary" %>
+    <% end %>
+    <%= link_to '< all lists', root_path, class: "btn btn-outline-primary mt-3" %>
+  </div>
+</div>

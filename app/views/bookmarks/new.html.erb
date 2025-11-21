@@ -1,7 +1,0 @@
-<h2>add a bookmark to <%= @list.name %></h2>
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie %>
-  <%= f.input :comment %>
-  <%= f.submit %>
-<% end %>
-<%= link_to 'cancel', list_path(@list) %>

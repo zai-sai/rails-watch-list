@@ -4,11 +4,16 @@
 
 <div  class="text-center">
   <p class="lead">movies that fit the <%= @list.name %> vibe</p>
-  <%= link_to 'all lists', root_path, class: "btn btn-outline-primary mx-2"%>
-  <%= link_to 'add bookmark', new_list_bookmark_path(@list), class: "btn btn-primary mx-2"%>
+  <%= link_to '< all lists', root_path, class: "btn btn-outline-primary mx-2"%>
+  <%# link_to 'add bookmark', new_list_bookmark_path(@list), class: "btn btn-primary mx-2"%>
 </div>
 
 <div class="row my-5">
+  <% if notice %>
+    <div class="d-flex justify-content-center">
+      <p class="border border-3 border-primary bg-light text-center text-dark mb-3 p-2"><%= notice %></p>
+    </div>
+  <% end %>
   <% @bookmarks.each do |bookmark| %>
   <div class="col-md-4">
     <div class="card">
@@ -27,4 +32,18 @@
     </div>
   </div>
   <% end %>
+</div>
+
+<hr>
+
+<div class ="row justify-content-center my-5">
+  <div class="col-md-6">
+    <h4>got a <%= @list.name %> movie recommendation?</h4>
+    <p class="lead">add it to the list!</p>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.submit 'add movie', class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
 </div>

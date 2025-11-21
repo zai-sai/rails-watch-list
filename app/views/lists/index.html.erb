@@ -1,9 +1,16 @@
-<div class="text-center">
+<div class="text-center mb-3">
   <h2>movie lists</h2>
-  <p>forget genre, get funky and explore movies by vibe</p>
+  <p class="lead mb-4">forget genre, let's get funky by vibe</p>
+  <%= link_to 'make a new list', new_list_path, class: "nav-item btn btn-primary mb-2" %>
+  <p>or explore existing vibes:</p>
 </div>
 
-<div class ="row">
+<div class="row">
+  <% if notice %>
+    <div class="d-flex justify-content-center">
+      <p class="border border-3 border-primary bg-light text-center text-dark mb-3 p-2"><%= notice %></p>
+    </div>
+  <% end %>
   <% @lists.each do |list| %>
   <div class="col-12 col-md-4">
     <div class="card text-bg-dark m-2">

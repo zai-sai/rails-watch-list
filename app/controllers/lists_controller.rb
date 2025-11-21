@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmarks = Bookmark.where(list_id: @list.id)
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -15,7 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), status: :see_other, notice: "list created! now get busy adding movies!"
     else
       render :new, status: :unprocessable_content
     end
